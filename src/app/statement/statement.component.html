@@ -1,0 +1,56 @@
+<form #f="ngForm">
+  <div class="row">
+    <div class="col">
+      <input
+        type="text"
+        name="nom"
+        ngModel
+        #nom
+        class="form-control"
+        placeholder="Name"
+      />
+    </div>
+    <div class="col">
+      <input
+        type="text"
+        name="rib"
+        ngModel
+        #rib
+        class="form-control"
+        placeholder="Rib"
+      />
+    </div>
+
+    <div class="col">
+      <select class="form-control" name="mois" ngModel #mois>
+        <option *ngFor="let mois of MoisArr" [value]="mois.moisStr">{{
+          mois.mois
+        }}</option>
+      </select>
+    </div>
+
+    <div class="col">
+      <select class="form-control" name="annee" ngModel #annee>
+        <option *ngFor="let annee of tabAnnee" [value]="annee">{{
+          annee
+        }}</option>
+      </select>
+    </div>
+  </div>
+
+  <input
+    type="file"
+    id="validatedCustomFile"
+    ngModel
+    name="excelFile"
+    #excelFile
+  /><br /><br />
+
+  <button
+    class="btn btn-primary"
+    (click)="CreateStatement(excelFile, nom, rib, mois, annee)"
+  >
+    Create Statement
+  </button>
+</form>
+<p>{{ f.value | json }}</p>
