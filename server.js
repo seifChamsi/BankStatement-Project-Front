@@ -7,4 +7,4 @@ app.all("*", (req, res) => {
   res.status(200).sendFile(__dirname + "/dist/index.html");
 });
 
-app.listen(4200);
+app.listen(8080);
