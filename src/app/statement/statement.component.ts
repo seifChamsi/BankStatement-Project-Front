@@ -1,16 +1,17 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Component, OnInit, ViewChild } from "@angular/core";
+import Swal from "sweetalert2";
 
 @Component({
   selector: "statement",
   templateUrl: "./statement.component.html",
-  styleUrls: ["./statement.component.css"]
+  styleUrls: ["./statement.component.css"],
 })
 export class StatementComponent {
   obj;
   @ViewChild("excelFile") excelFile;
 
-  url = "http://localhost:65036/api/v1";
+  url = "http://54.172.34.102:7000/api/v1";
   MoisArr = [
     { mois: "01", moisStr: "Janvier" },
     { mois: "02", moisStr: "Février" },
@@ -23,7 +24,7 @@ export class StatementComponent {
     { mois: "09", moisStr: "Septembre" },
     { mois: "10", moisStr: "Octobre" },
     { mois: "11", moisStr: "Novembre" },
-    { mois: "12", moisStr: "Decembbre" }
+    { mois: "12", moisStr: "Decembbre" },
   ];
   tabAnnee = ["2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"];
   constructor(private http: HttpClient) {}
@@ -40,9 +41,9 @@ export class StatementComponent {
     formData.append("rib", rib.value);
     formData.append("mois", mois.value);
     formData.append("annee", annee.value);
+    let token = localStorage.getItem("jwt");
 
     let headers = new HttpHeaders();
-
     headers.append("Content-Type", "multipart/form-data");
     headers.append("Content-Type", "application/json");
 
@@ -52,10 +53,11 @@ export class StatementComponent {
     this.http
       .post(this.url + "/PostStatement", formData, httpOptions)
       .subscribe(
-        response => {
+        (response) => {
           console.log(response);
+          Swal.fire("Done!", "Statement stored succuessfully", "success");
         },
-        error => {
+        (error) => {
           console.log("here is error: " + error.message);
         }
       );

@@ -1,3 +1,5 @@
+<router-outlet></router-outlet>
+<navbar></navbar>
 <form #f="ngForm">
   <div class="row">
     <div class="col">
@@ -23,6 +25,7 @@
 
     <div class="col">
       <select class="form-control" name="mois" ngModel #mois>
+        <option selected value="">Entrez un mois</option>
         <option *ngFor="let mois of MoisArr" [value]="mois.moisStr">{{
           mois.mois
         }}</option>
@@ -31,12 +34,14 @@
 
     <div class="col">
       <select class="form-control" name="annee" ngModel #annee>
+        <option selected value="">Entrez une annee</option>
         <option *ngFor="let annee of tabAnnee" [value]="annee">{{
           annee
         }}</option>
       </select>
     </div>
   </div>
+  <br /><br />
 
   <input
     type="file"
@@ -45,7 +50,11 @@
     name="excelFile"
     #excelFile
   /><br /><br />
-
+  <div class="alert alert-info">
+    <strong>IMPORTANT : </strong>avant de déposer votre fichier de relevé
+    bancaire, ouvrez-le sur votre ordinateur pour vérifier si le format Excel
+    est correct
+  </div>
   <button
     class="btn btn-primary"
     (click)="CreateStatement(excelFile, nom, rib, mois, annee)"
