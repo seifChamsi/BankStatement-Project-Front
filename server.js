@@ -3,8 +3,10 @@ const app = express();
 
 app.use(express.static("./dist/taysir-statement"));
 
-app.all("*", (req, res) => {
-  res.status(200).sendFile(__dirname + "/dist/taysir-statement/index.html");
+app.all("/*", (req, res) => {
+  res.status(200).sendFile("index.html", { root: "dist/taysir-statement" });
 });
 
-app.listen(8080);
+app.listen(process.env.PORT || 8080, () => {
+  console.log("Listening on port 8080");
+});
