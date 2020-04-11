@@ -3,14 +3,17 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --prod"
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "~9.0.4",
+    "@angular/compiler-cli": "~9.0.3",
     "@angular/animations": "~9.0.3",
     "@angular/common": "~9.0.3",
     "@angular/compiler": "~9.0.3",
@@ -22,6 +25,8 @@
     "@auth0/angular-jwt": "^4.0.0",
     "@sweetalert2/ngx-sweetalert2": "^8.0.0",
     "bootstrap": "^4.4.1",
+    "typescript": "~3.7.5",
+    "express": "^4.17.1",
     "rxjs": "~6.5.4",
     "sweetalert2": "^9.10.7",
     "tslib": "^1.10.0",
