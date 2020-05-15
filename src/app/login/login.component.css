@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+
+.Welcome {
+  width: 360.5px;
+  height: 94.8px;
+  font-family: Poppins;
+  font-size: 80px;
+  font-weight: 200;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #19377e;
+}
+
+.Auth-Login {
+  width: 153px;
+  height: 42px;
+  box-shadow: 0px 3px 24px 0 rgba(88, 177, 177, 0.45);
+  background-color: #0f9d7e;
+
+  color: white;
+  border-radius: 10px;
+  border: none;
+}
+
+.col-md-8 back-img {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+.email-form {
+  min-width: 150px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.email-full-width {
+  width: 100%;
+}
+.Welcome-back {
+  width: 286px;
+  height: 53px;
+  font-family: Poppins;
+  font-size: 30px;
+  font-weight: 1000;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #333333;
+}
+
+.btn-lg,
+.btn-group-lg > .btn {
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border-radius: 2rem;
+}
+
+.logo-img {
+  width: 216px;
+  height: 211px;
+  border-radius: 50%;
+  border-style: groove;
+  margin-left: 126px;
+  margin-bottom: 29px;
+}
+
+.image-signin {
+  width: 1052px;
+  height: 767px;
+}

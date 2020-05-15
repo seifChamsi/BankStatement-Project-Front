@@ -1,0 +1,15 @@
+.main {
+  margin: 80px 20px 0 20px;
+  border: 1px solid black;
+  padding: 20px 0;
+  border-radius: 25px;
+}
+
+.button-wrapper {
+  margin-top: 60px;
+  margin-left: 709px;
+}
+
+.Create-btn {
+  border-radius: 15px;
+}

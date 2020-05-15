@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
+.body {
+  font-family: Poppins;
+}
+.logo {
+  width: 229px;
+  height: 220px;
+  margin-left: 362px;
+  margin-bottom: 100px;
+}
+
+.title {
+  width: 508px;
+  height: 132px;
+  font-family: Poppins;
+  font-size: 50px;
+  font-weight: 200;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.22;
+  letter-spacing: normal;
+  text-align: center;
+  color: #212121;
+  margin-left: 10px;
+  margin-left: 592px;
+}

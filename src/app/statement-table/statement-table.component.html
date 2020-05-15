@@ -1,39 +1,70 @@
 <router-outlet></router-outlet>
 <navbar></navbar>
-<form #f="ngForm" [hidden]="hiddenForm">
-  <div class="row">
-    <div class="col">
-      <input
-        type="text"
-        name="rib"
-        ngModel
-        #rib
-        class="form-control"
-        placeholder="Rib"
-      />
-    </div>
 
-    <div class="col">
-      <select class="form-control" name="mois" ngModel #mois>
-        <option selected value="">Entrez un mois</option>
-        <option *ngFor="let mois of TabMois" [value]="mois.moisStr">{{
-          mois.mois
-        }}</option>
-      </select>
+<div class="main">
+  <form #f="ngForm" [hidden]="hiddenForm">
+    <div class="row">
+      <div class="col">
+        <div class="md-form form-sm">
+          <input
+            mdbInput
+            type="text"
+            name="rib"
+            ngModel
+            #rib
+            id="form1"
+            class="form-control form-control-sm"
+          />
+          <label for="form1" class="">Rib</label>
+        </div>
+      </div>
+
+      <div class="col">
+        <select
+          class="form-control"
+          name="mois"
+          ngModel
+          #mois
+          style="margin-top: 27px;"
+        >
+          <option selected value="">Entrez un mois</option>
+          <option *ngFor="let mois of TabMois" [value]="mois.moisStr">{{
+            mois.mois
+          }}</option>
+        </select>
+      </div>
+      <div class="col">
+        <select
+          class="form-control"
+          name="annee"
+          ngModel
+          #annee
+          style="margin-top: 27px;"
+        >
+          <option selected value="">Entrez une annee</option>
+          <option *ngFor="let annee of tabAnnee" [value]="annee">{{
+            annee
+          }}</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <button
+            style="margin-top: 27px;"
+            class="btn btn-primary"
+            (click)="RenderTable(rib, mois, annee)"
+          >
+            Valider
+          </button>
+          <div *ngIf="loading" class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col">
-      <select class="form-control" name="annee" ngModel #annee>
-        <option selected value="">Entrez une annee</option>
-        <option *ngFor="let annee of tabAnnee" [value]="annee">{{
-          annee
-        }}</option>
-      </select>
-    </div>
-    <button class="btn btn-primary" (click)="RenderTable(rib, mois, annee)">
-      Valider
-    </button>
-  </div>
-</form>
+  </form>
+</div>
 
 <div *ngIf="!isHidden && statementLength > 0" class="card text-center">
   <div class="card-header">

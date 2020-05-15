@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
+import { FormControl, FormGroupDirective, Validators } from "@angular/forms";
+import { ErrorStateMatcher } from "@angular/material/core";
 
 @Component({
   selector: "app-login",
@@ -14,7 +16,7 @@ export class LoginComponent implements OnInit {
   login(form: NgForm) {
     let credentials = JSON.stringify(form.value);
     this.http
-      .post("http://54.172.34.102:7000/api/v1/auth/login", credentials, {
+      .post("http://3.120.187.220:7000/api/v1/auth/login", credentials, {
         headers: new HttpHeaders({
           "Content-Type": "application/json",
         }),

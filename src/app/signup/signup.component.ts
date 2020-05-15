@@ -1,7 +1,13 @@
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
-import { Form, NgForm } from "@angular/forms";
+import {
+  Form,
+  NgForm,
+  Validators,
+  FormControl,
+  FormGroup,
+} from "@angular/forms";
 import { HttpHeaders } from "@angular/common/http";
 import Swal from "sweetalert2";
 
@@ -18,7 +24,7 @@ export class SignupComponent implements OnInit {
   CreateNewUser(signupForm: NgForm) {
     let credentials = JSON.stringify(signupForm.value);
     this.http
-      .post("http://54.172.34.102:7000/api/v1/auth/signup", credentials, {
+      .post("http://3.120.187.220:7000/api/v1/auth/signup", credentials, {
         headers: new HttpHeaders({
           "Content-Type": "application/json",
         }),

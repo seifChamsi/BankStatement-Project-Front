@@ -1,65 +1,117 @@
 <router-outlet></router-outlet>
 <navbar></navbar>
-<form #f="ngForm">
-  <div class="row">
-    <div class="col">
-      <input
-        type="text"
-        name="nom"
-        ngModel
-        #nom
-        class="form-control"
-        placeholder="Name"
-      />
-    </div>
-    <div class="col">
-      <input
-        type="text"
-        name="rib"
-        ngModel
-        #rib
-        class="form-control"
-        placeholder="Rib"
-      />
-    </div>
 
-    <div class="col">
-      <select class="form-control" name="mois" ngModel #mois>
-        <option selected value="">Entrez un mois</option>
-        <option *ngFor="let mois of MoisArr" [value]="mois.moisStr">{{
-          mois.mois
-        }}</option>
-      </select>
-    </div>
+<div class="main">
+  <div class="container-fluid">
+    <form #f="ngForm">
+      <div class="row">
+        <div class="col">
+          <div class="md-form form-sm">
+            <input
+              mdbInput
+              type="text"
+              name="nom"
+              ngModel
+              #nom
+              id="form1"
+              class="form-control form-control-sm"
+            />
+            <label for="form1" class="">Nom</label>
+          </div>
+        </div>
 
-    <div class="col">
-      <select class="form-control" name="annee" ngModel #annee>
-        <option selected value="">Entrez une annee</option>
-        <option *ngFor="let annee of tabAnnee" [value]="annee">{{
-          annee
-        }}</option>
-      </select>
-    </div>
+        <div class="col">
+          <div class="md-form form-sm">
+            <input
+              mdbInput
+              type="text"
+              name="rib"
+              ngModel
+              #rib
+              id="form1"
+              class="form-control form-control-sm"
+            />
+            <label for="form1" class="">Rib</label>
+          </div>
+        </div>
+
+        <div class="col">
+          <select
+            class="form-control"
+            name="mois"
+            ngModel
+            #mois
+            style="margin-top: 26px;"
+          >
+            <option selected value="">Entrez un mois</option>
+            <option *ngFor="let mois of MoisArr" [value]="mois.moisStr">{{
+              mois.mois
+            }}</option>
+          </select>
+        </div>
+
+        <div class="col">
+          <select
+            class="form-control"
+            name="annee"
+            ngModel
+            #annee
+            style="margin-top: 26px;"
+          >
+            <option selected value="">Entrez une annee</option>
+            <option *ngFor="let annee of tabAnnee" [value]="annee">{{
+              annee
+            }}</option>
+          </select>
+        </div>
+      </div>
+      <br /><br />
+      <div class="row">
+        <div class="col">
+          Choissisez votre banque :<br />
+          BIAT
+
+          <input
+            type="radio"
+            name="format"
+            value="biat"
+            ngModel
+            #format="ngModel"
+          /><br />
+          Zitouna
+          <input
+            type="radio"
+            name="format"
+            value="zitouna"
+            ngModel
+            #format="ngModel"
+          />
+        </div>
+
+        <div class="col">
+          <input
+            type="file"
+            id="validatedCustomFile"
+            ngModel
+            name="inputFile"
+            #inputFile
+          />
+        </div>
+      </div>
+
+      <br /><br />
+
+      <div class="button-wrapper">
+        <button
+          class="btn btn-primary Create-btn"
+          (click)="CreateStatement(inputFile, nom, rib, mois, annee, format)"
+        >
+          Create Statement
+        </button>
+        <div *ngIf="loading" class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </form>
   </div>
-  <br /><br />
-
-  <input
-    type="file"
-    id="validatedCustomFile"
-    ngModel
-    name="excelFile"
-    #excelFile
-  /><br /><br />
-  <div class="alert alert-info">
-    <strong>IMPORTANT : </strong>avant de déposer votre fichier de relevé
-    bancaire, ouvrez-le sur votre ordinateur pour vérifier si le format Excel
-    est correct
-  </div>
-  <button
-    class="btn btn-primary"
-    (click)="CreateStatement(excelFile, nom, rib, mois, annee)"
-  >
-    Create Statement
-  </button>
-</form>
-<p>{{ f.value | json }}</p>
+</div>

@@ -1,4 +1,39 @@
-<main role="main" class="container">
+<div class="logo">
+  <img src="/assets/Statements.png" class="logo" alt="" />
+</div>
+
+<div class="title">
+  <h3>Gestion Numérique pour Vos Rélevés Bancaire</h3>
+  <br />
+  <p class="lead">
+    Use this application to store your several Bank statements in one place<br />
+    Each month post your statement Excel file/PDF and we will handle it for
+    you...
+  </p>
+  <button
+    mdbBtn
+    type="button"
+    color="default"
+    (click)="goToLogin()"
+    rounded="true"
+    mdbWavesEffect
+  >
+    Sign in
+  </button>
+  <button
+    mdbBtn
+    type="button"
+    color="info"
+    rounded="true"
+    outline="true"
+    mdbWavesEffect
+    (click)="goToSignUp()"
+  >
+    Sign up
+  </button>
+</div>
+
+<!-- <main role="main" class="container">
   <div class="starter-template">
     <h1>Welcome to Taysir Statement</h1>
     <p class="lead">
@@ -14,4 +49,4 @@
     </button>
   </div>
 </main>
-<!-- /.container -->
+/.container -->

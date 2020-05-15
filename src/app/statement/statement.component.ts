@@ -9,9 +9,10 @@ import Swal from "sweetalert2";
 })
 export class StatementComponent {
   obj;
+  loading;
   @ViewChild("excelFile") excelFile;
 
-  url = "http://54.172.34.102:7000/api/v1";
+  url = "http://3.120.187.220:7000/api/v1";
   MoisArr = [
     { mois: "01", moisStr: "Janvier" },
     { mois: "02", moisStr: "Février" },
@@ -29,11 +30,11 @@ export class StatementComponent {
   tabAnnee = ["2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"];
   constructor(private http: HttpClient) {}
 
-  CreateStatement(excelFile, nom, rib, mois, annee) {
-    const file = <File>excelFile.files[0];
-
+  CreateStatement(inputFile, nom, rib, mois, annee, format) {
+    const file = <File>inputFile.files[0];
+    this.loading = true;
     const formData = new FormData();
-    formData.append("excelFile", file);
+    formData.append("file", file);
 
     console.log(formData);
 
@@ -41,19 +42,17 @@ export class StatementComponent {
     formData.append("rib", rib.value);
     formData.append("mois", mois.value);
     formData.append("annee", annee.value);
-    let token = localStorage.getItem("jwt");
+    formData.append("format", format.value);
 
     let headers = new HttpHeaders();
     headers.append("Content-Type", "multipart/form-data");
-    headers.append("Content-Type", "application/json");
-
-    headers.append("Accept", "application/json");
-
     const httpOptions = { headers: headers };
+    let token = localStorage.getItem("jwt");
     this.http
       .post(this.url + "/PostStatement", formData, httpOptions)
       .subscribe(
         (response) => {
+          this.loading = false;
           console.log(response);
           Swal.fire("Done!", "Statement stored succuessfully", "success");
         },

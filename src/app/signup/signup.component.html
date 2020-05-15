@@ -1,10 +1,154 @@
-<form class="form-group" (ngSubmit)="CreateNewUser(f)" #f="ngForm">
+<div class="wrapper">
+  <div class="main">
+    <section class="signup">
+      <div class="container">
+        <div class="row">
+          <div class="form-wrapper"></div>
+          <div class="col-md-6">
+            <div class="signup-content">
+              <div class="signup-form">
+                <h2 class="form-title">Signup</h2>
+                <form
+                  class="register-form"
+                  id="register-form"
+                  (ngSubmit)="CreateNewUser(f)"
+                  #f="ngForm"
+                >
+                  <div class="md-form">
+                    <input
+                      class="form-control"
+                      required
+                      id="username"
+                      #username="ngModel"
+                      ngModel
+                      name="username"
+                      mdbInput
+                      type="text"
+                      id="form2"
+                      class="form-control"
+                    />
+                    <div
+                      class="alert alert-danger"
+                      *ngIf="
+                        username.invalid && (username.dirty || username.touched)
+                      "
+                    >
+                      username required
+                    </div>
+                    <label for="form2" style="font-weight: 700;"
+                      >Username</label
+                    >
+                  </div>
+
+                  <div class="md-form">
+                    <input
+                      required
+                      mdbInput
+                      id="email"
+                      #email="ngModel"
+                      ngModel
+                      class="form-control"
+                      type="Email"
+                      id="form2"
+                      name="email"
+                      class="form-control"
+                    />
+                    <label for="form2" style="font-weight: 700;">Email</label>
+                    <div
+                      class="alert alert-danger"
+                      *ngIf="email.invalid && (email.dirty || email.touched)"
+                    >
+                      Please provide your E-mail
+                    </div>
+
+                    <div class="md-form">
+                      <input
+                        required
+                        mdbInput
+                        type="password"
+                        id="form2"
+                        id="password"
+                        #password="ngModel"
+                        name="password"
+                        ngModel
+                        class="form-control"
+                      />
+                      <label for="form2" style="font-weight: 700;"
+                        >Password</label
+                      >
+                    </div>
+
+                    <div
+                      class="alert alert-danger"
+                      *ngIf="
+                        password.invalid && (password.dirty || password.touched)
+                      "
+                    >
+                      *Password is required *Password should be at least 4
+                      characters
+                    </div>
+
+                    <div class="md-form">
+                      <input
+                        required
+                        mdbInput
+                        type="password"
+                        id="form2"
+                        #password_confirm="ngModel"
+                        ngModel
+                        name="password_confirm"
+                        class="form-control"
+                      />
+                      <label for="form2" style="font-weight: 700;"
+                        >Confirm Password</label
+                      >
+                    </div>
+                    <div
+                      class="alert alert-danger"
+                      *ngIf="
+                        password_confirm.invalid &&
+                        (password_confirm.dirty || password_confirm.touched)
+                      "
+                    >
+                      Please confirm password
+                    </div>
+
+                    <button
+                      mdbBtn
+                      type="button"
+                      color="default"
+                      rounded="true"
+                      outline="true"
+                      mdbWavesEffect
+                      style="font-weight: bold;"
+                      type="submit"
+                      [disabled]="f.invalid"
+                    >
+                      Signup
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <figure>
+              <img src="/assets/signup-image.jpg" alt="" />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!--<form class="form-group" (ngSubmit)="CreateNewUser(f)" #f="ngForm">
   <fieldset>
     <div id="legend">
       <legend class="center">Register</legend>
     </div>
     <div class="control-group">
-      <!-- Username -->
+  
       <label class="control-label" for="username">Username</label>
       <div class="form-group">
         <input
@@ -27,7 +171,6 @@
     </div>
 
     <div class="control-group">
-      <!-- E-mail -->
       <label class="control-label" for="email">E-mail</label>
       <div class="controls">
         <input
@@ -50,7 +193,7 @@
     </div>
 
     <div class="control-group">
-      <!-- Password-->
+   
       <label class="control-label" for="password">Password</label>
       <div class="controls">
         <input
@@ -73,7 +216,7 @@
     </div>
 
     <div class="control-group">
-      <!-- Password -->
+ 
       <label class="control-label" for="password_confirm"
         >Password (Confirm)</label
       >
@@ -101,7 +244,7 @@
     </div>
     <br />
     <div class="control-group">
-      <!-- Button -->
+
       <div class="controls">
         <button type="submit" [disabled]="f.invalid" class="btn btn-success">
           Register
@@ -110,4 +253,4 @@
     </div>
   </fieldset>
 </form>
-<p>{{ f.value | json }}</p>
+<p>{{ f.value | json }}</p> -->

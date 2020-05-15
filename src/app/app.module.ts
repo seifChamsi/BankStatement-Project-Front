@@ -14,6 +14,7 @@ import { StarterPageComponent } from "./starter-page/starter-page.component";
 import { SignupComponent } from "./signup/signup.component";
 import { JwtModule } from "@auth0/angular-jwt";
 import { SweetAlert2Module } from "@sweetalert2/ngx-sweetalert2";
+import { MDBBootstrapModule } from "angular-bootstrap-md";
 
 const appRoutes: Routes = [
   {
@@ -56,12 +57,13 @@ export function tokenGetter() {
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    MDBBootstrapModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     SweetAlert2Module.forRoot(),
     JwtModule.forRoot({
       config: {
         tokenGetter,
-        whitelistedDomains: ["54.172.34.102:7000"],
+        whitelistedDomains: ["3.120.187.220:7000"],
         blacklistedRoutes: [],
       },
     }),

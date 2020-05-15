@@ -24,14 +24,16 @@ export class StatementTableComponent implements OnInit {
   tabAnnee = ["2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"];
 
   statement;
+  loading;
   isHidden = true;
   hiddenForm = false;
-  url = "http://54.172.34.102:7000/api/v1";
+  url = "http://3.120.187.220:7000/api/v1";
   statementLength;
   constructor(private http: HttpClient) {}
   ngOnInit(): void {}
 
   RenderTable(rib, mois, annee) {
+    this.loading = true;
     let token = localStorage.getItem("jwt");
     let headers = new HttpHeaders();
 
@@ -47,6 +49,7 @@ export class StatementTableComponent implements OnInit {
       .get(this.url + "/GetStatement", { params: data, headers: headers })
       .subscribe(
         (response) => {
+          this.loading = false;
           this.statement = response;
           this.statementLength = this.statement.length;
           this.hiddenForm = true;

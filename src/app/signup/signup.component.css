@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+.wrapper {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #222;
+  background: #f8f8f8;
+  font-weight: 400;
+  font-family: Poppins;
+  height: 100%;
+}
+
+.main {
+  background: #f8f8f8;
+}
+
+.signup {
+  margin-bottom: 58px;
+}
+
+.signup-content {
+  padding: 121px 0;
+}
+
+.form-title {
+  margin-bottom: 33px;
+}
+
+h2 {
+  line-height: 1.66;
+  margin: 0;
+  padding: 0;
+  font-weight: bolder;
+  color: #222;
+  font-family: Poppins;
+  font-size: 36px;
+}
+
+.register-form {
+  width: 100%;
+}
+form {
+  display: block;
+  margin-top: 0em;
+}
+.input-group-prepend.span {
+  font-weight: 700;
+}
+input {
+  font-weight: 700;
+}
+
+figure {
+  margin-bottom: 50px;
+  text-align: center;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 271px;
+}
